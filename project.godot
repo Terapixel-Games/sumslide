@@ -19,18 +19,23 @@ run/main_scene="res://src/scenes/Boot.tscn"
 
 SaveStore="*res://src/data/SaveStore.gd"
 RunManager="*res://src/core/RunManager.gd"
-AdManager="*res://src/ads/AdManager.gd"
+AdManager="*res://addons/arcade_core/AdManager.gd"
 MusicManager="*res://src/audio/MusicManager.gd"
 VFXManager="*res://src/vfx/VFXManager.gd"
 
+SaveManager="*res://addons/arcade_core/SaveManager.gd"
+StreakManager="*res://addons/arcade_core/StreakManager.gd"
+AudioManager="*res://addons/arcade_core/AudioManager.gd"
+Fx="*res://addons/arcade_core/Fx.gd"
 [display]
 
-window/size/viewport_width=720
-window/size/viewport_height=1280
+window/size/viewport_width=1080
+window/size/viewport_height=1920
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/handheld/orientation=1
 
+window/size/resizable=true
 [rendering]
 
 renderer/rendering_method="mobile"

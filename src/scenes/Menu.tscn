@@ -1,6 +1,48 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=5 format=3]
 
 [ext_resource type="Script" path="res://src/scenes/Menu.gd" id="1_hojwq"]
+
+[sub_resource type="StyleBoxFlat" id="1_panel"]
+bg_color = Color(0.09, 0.08, 0.13, 0.92)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.82, 0.5, 0.36)
+corner_radius_top_left = 34
+corner_radius_top_right = 34
+corner_radius_bottom_right = 34
+corner_radius_bottom_left = 34
+shadow_color = Color(0, 0, 0, 0.26)
+shadow_size = 18
+content_margin_left = 28.0
+content_margin_top = 28.0
+content_margin_right = 28.0
+content_margin_bottom = 28.0
+
+[sub_resource type="StyleBoxFlat" id="2_primary"]
+bg_color = Color(1, 0.72, 0.36, 0.96)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 0.94, 0.84, 0.8)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+
+[sub_resource type="StyleBoxFlat" id="3_secondary"]
+bg_color = Color(0.18, 0.16, 0.25, 0.92)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.68, 0.88, 1, 0.28)
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+corner_radius_bottom_left = 22
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -18,60 +60,113 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.0784314, 0.0941176, 0.133333, 1)
+color = Color(0.06, 0.06, 0.09, 1)
+
+[node name="AccentGlow" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.22, 0.18, 0.36, 0.18)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 40.0
-offset_top = 40.0
-offset_right = -40.0
-offset_bottom = -40.0
+offset_left = 32.0
+offset_top = 32.0
+offset_right = -32.0
+offset_bottom = -32.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBox" type="VBoxContainer" parent="MarginContainer"]
+[node name="Center" type="CenterContainer" parent="MarginContainer"]
 layout_mode = 2
-size_flags_vertical = 4
-theme_override_constants/separation = 16
-
-[node name="SpacerTop" type="Control" parent="MarginContainer/VBox"]
-layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="TitleLabel" type="Label" parent="MarginContainer/VBox"]
+[node name="Panel" type="PanelContainer" parent="MarginContainer/Center"]
+custom_minimum_size = Vector2(640, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("1_panel")
+
+[node name="VBox" type="VBoxContainer" parent="MarginContainer/Center/Panel"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 18
+
+[node name="SpacerTop" type="Control" parent="MarginContainer/Center/Panel/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 4)
+
+[node name="Kicker" type="Label" parent="MarginContainer/Center/Panel/VBox"]
+layout_mode = 2
+text = "NUMBER FLOW"
+horizontal_alignment = 1
+theme_override_colors/font_color = Color(1, 0.86, 0.62, 0.9)
+theme_override_font_sizes/font_size = 20
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/Center/Panel/VBox"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "SumSlide"
 horizontal_alignment = 1
-theme_override_font_sizes/font_size = 56
+theme_override_colors/font_color = Color(1, 0.98, 0.95, 1)
+theme_override_font_sizes/font_size = 68
 
-[node name="SubtitleLabel" type="Label" parent="MarginContainer/VBox"]
+[node name="SubtitleLabel" type="Label" parent="MarginContainer/Center/Panel/VBox"]
 layout_mode = 2
-text = "Swipe numbers. Clear pairs that sum to 10."
+text = "Swipe numbers. Build tens. Keep the board breathing."
 horizontal_alignment = 1
+theme_override_colors/font_color = Color(0.88, 0.9, 0.98, 0.86)
+theme_override_font_sizes/font_size = 24
 
-[node name="StartButton" type="Button" parent="MarginContainer/VBox"]
+[node name="SignalLabel" type="Label" parent="MarginContainer/Center/Panel/VBox"]
+layout_mode = 2
+text = "FAST ROUNDS   •   CLEAN CONTRAST   •   ONE-HAND FLOW"
+horizontal_alignment = 1
+theme_override_colors/font_color = Color(0.74, 0.86, 1, 0.84)
+theme_override_font_sizes/font_size = 17
+
+[node name="StartButton" type="Button" parent="MarginContainer/Center/Panel/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 72)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.1, 0.06, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("2_primary")
+theme_override_styles/hover = SubResource("2_primary")
+theme_override_styles/pressed = SubResource("2_primary")
+text = "Start Run"
+
+[node name="SoundToggle" type="CheckButton" parent="MarginContainer/Center/Panel/VBox"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Start"
-
-[node name="SoundToggle" type="CheckButton" parent="MarginContainer/VBox"]
-unique_name_in_owner = true
-layout_mode = 2
+theme_override_colors/font_color = Color(0.92, 0.96, 1, 1)
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("3_secondary")
+theme_override_styles/hover = SubResource("3_secondary")
+theme_override_styles/pressed = SubResource("3_secondary")
 text = "Sound On"
 button_pressed = true
 
-[node name="HowToPlayButton" type="Button" parent="MarginContainer/VBox"]
+[node name="HowToPlayButton" type="Button" parent="MarginContainer/Center/Panel/VBox"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 62)
 layout_mode = 2
+theme_override_colors/font_color = Color(0.92, 0.96, 1, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("3_secondary")
+theme_override_styles/hover = SubResource("2_primary")
+theme_override_styles/pressed = SubResource("2_primary")
 text = "How to Play"
 
-[node name="SpacerBottom" type="Control" parent="MarginContainer/VBox"]
+[node name="SpacerBottom" type="Control" parent="MarginContainer/Center/Panel/VBox"]
 layout_mode = 2
-size_flags_vertical = 3
+custom_minimum_size = Vector2(0, 4)
 
 [node name="HowToPlayPopup" type="AcceptDialog" parent="."]
 unique_name_in_owner = true

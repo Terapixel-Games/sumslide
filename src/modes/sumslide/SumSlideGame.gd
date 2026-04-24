@@ -121,11 +121,11 @@ func _update_game_over_overlay() -> void:
 
 
 func _update_powerup_buttons() -> void:
-	var rewarded_ready := AdManager.is_rewarded_ready()
+	var rewarded_ready: bool = AdManager.has_method("is_rewarded_ready") and AdManager.is_rewarded_ready()
 	_rewarded_shuffle_button.visible = rewarded_ready
 	_rewarded_shuffle_button.disabled = not rewarded_ready
 
-	var can_undo := rewarded_ready and not _undo_used and not _last_state.is_empty()
+	var can_undo: bool = rewarded_ready and not _undo_used and not _last_state.is_empty()
 	_rewarded_undo_button.visible = can_undo
 	_rewarded_undo_button.disabled = not can_undo
 
