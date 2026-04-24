@@ -40,5 +40,10 @@ Next implementation tasks:
 
 <!-- END CODEX REVIEW 2026-04-24 -->
 
+## Gameplay Review - 2026-04-24
+- [x] Reviewed current loop: slide-to-make-sums puzzle has coherent target, combo, strike, and shuffle rules.
+- [x] Renamed project display name to `Sum Slide`.
+- [x] Verified unit suite with `scripts/run-tests.ps1 -Suite unit`.
+
 
 
