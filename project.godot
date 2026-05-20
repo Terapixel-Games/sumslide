@@ -13,6 +13,10 @@ config_version=5
 config/name="Sum Slide"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://icon.svg"
+boot_splash/use_filter=true
+boot_splash/fullsize=false
+boot_splash/image="res://assets/branding/splash.png"
+boot_splash/bg_color=Color(0.015, 0.018, 0.026, 1)
 run/main_scene="res://src/scenes/Boot.tscn"
 
 [autoload]
